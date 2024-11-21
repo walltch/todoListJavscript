@@ -1,28 +1,6 @@
-const todoList = [];
-function addTodo() {
-    const todoItem = document.body.querySelector('#todoInput');
-    const todoItemValue = todoItem.value;
-    todoList.push(todoItemValue);
-    todoItem.value = '';
-    displayTodo(todoList);
-}
+const inputElement = document.querySelector('.form-control');  // Get the input element
+console.log(inputElement.value);  // Log the current value of the input element
 
-function displayTodo(todoTable) {
-    const todoListElement = document.body.querySelector('#todoList');
-    todoListElement.innerHTML = '';
-    for (let i = 0; i < todoTable.length;
-        i++) {
-        const todoItem = todoTable[i];
-        todoListElement.innerHTML += `
-            <li>${todoItem}
-                <button onclick="deleteTodo(${i})">Delete</
-            </li>
-            `;
-    }
-
-}
-
-function deleteTodo(index) {
-    todoList.splice(index, 1);
-    displayTodo(todoList);
-}
+inputElement.addEventListener('input', () => {  // Add event listener for 'change' event
+    console.log(inputElement.value);  // Log the new value when the input changes
+});
